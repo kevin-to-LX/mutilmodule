@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/manager/manager.iml" filepath="$PROJECT_DIR$/manager/manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/mutilmodule.iml" filepath="$PROJECT_DIR$/mutilmodule.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-controller/spring-controller.iml" filepath="$PROJECT_DIR$/spring-controller/spring-controller.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-redis/spring-redis.iml" filepath="$PROJECT_DIR$/spring-redis/spring-redis.iml" />

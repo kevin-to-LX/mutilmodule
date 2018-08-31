@@ -5,9 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -15,7 +13,7 @@ import java.util.Set;
 /**
  * Created by jinyugai on 2018/8/28.
  */
-@Component
+/*@Component*/
 public class DataCacheManager implements CommandLineRunner{//用于预先数据的加载
 
     private static Set<DataCacheService> dataCacheServiceSet = new HashSet<>();

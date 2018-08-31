@@ -10,8 +10,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>spring-redis</module>
+        <!--<module>spring-redis</module>-->
         <module>spring-controller</module>
+        <module>manager</module>
     </modules>
 
 </project>

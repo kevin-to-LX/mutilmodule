@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kevin.mapper.TuserMapper">
+  <resultMap id="BaseResultMap" type="com.kevin.entity.Tuser">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="true_name" jdbcType="VARCHAR" property="trueName" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+  <select id="selectUsersByDeviceId" resultMap="BaseResultMap" resultType="com.kevin.entity.Tuser">
+    <![CDATA[
+  SELECT
+    tu.ID, tu.BZ,tu.USER_NAME, tu.TRUE_NAME, tu.REMARKS
+  from T_USER tu
+  inner join
+  T_USER_DEVICE tud
+  on tu.id=tud.user_id
+  where
+  tud.device_id= ]]>#{deviceid}
+  </select>
+
+</mapper>
