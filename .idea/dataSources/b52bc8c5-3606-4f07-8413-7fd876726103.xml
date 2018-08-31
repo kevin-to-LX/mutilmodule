@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="kevindevice@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="kevindevice">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="db_rbps"/>
+    <schema id="4" parent="1" name="hik"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="kevin"/>
+    <schema id="7" parent="1" name="kevin_sql"/>
+    <schema id="8" parent="1" name="mysql"/>
+    <schema id="9" parent="1" name="performance_schema"/>
+    <schema id="10" parent="1" name="sys"/>
+    <schema id="11" parent="1" name="zjtblog"/>
+    <table id="12" parent="2" name="sys_permission_init"/>
+    <table id="13" parent="2" name="t_device">
+      <Comment>设备表</Comment>
+    </table>
+    <table id="14" parent="2" name="t_menu"/>
+    <table id="15" parent="2" name="t_role"/>
+    <table id="16" parent="2" name="t_role_menu"/>
+    <table id="17" parent="2" name="t_user"/>
+    <table id="18" parent="2" name="t_user_device">
+      <Comment>用户设备关系图</Comment>
+    </table>
+    <table id="19" parent="2" name="t_user_role"/>
+    <column id="20" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="12" name="url">
+      <Position>2</Position>
+      <Comment>閾炬帴鍦板潃</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="22" parent="12" name="permission_init">
+      <Position>3</Position>
+      <Comment>闇€瑕佸叿澶囩殑鏉冮檺</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="23" parent="12" name="sort">
+      <Position>4</Position>
+      <Comment>鎺掑簭</Comment>
+      <DataType>int(50)|0</DataType>
+    </column>
+    <key id="24" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="25" parent="13" name="id">
+      <Position>1</Position>
+      <Comment>设备id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="26" parent="13" name="device_name">
+      <Position>2</Position>
+      <Comment>设备名</Comment>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="27" parent="13" name="device_type">
+      <Position>3</Position>
+      <Comment>设备类型</Comment>
+      <DataType>enum(&apos;ezviz&apos;, &apos;GB&apos;, &apos;ehome&apos;)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="13" name="device_channel">
+      <Position>4</Position>
+      <Comment>设备通道号</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="29" parent="13" name="device_no">
+      <Position>5</Position>
+      <Comment>设备编号</Comment>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="30" parent="13" name="ctime">
+      <Position>6</Position>
+      <Comment>上线时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="31" parent="13" name="utime">
+      <Position>7</Position>
+      <Comment>最近一次操作时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="32" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="33" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="34" parent="14" name="icon">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="35" parent="14" name="name">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="36" parent="14" name="state">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="37" parent="14" name="url">
+      <Position>5</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="38" parent="14" name="p_id">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="39" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="40" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="41" parent="15" name="bz">
+      <Position>2</Position>
+      <DataType>varchar(1000)|0</DataType>
+    </column>
+    <column id="42" parent="15" name="name">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="43" parent="15" name="remarks">
+      <Position>4</Position>
+      <DataType>varchar(1000)|0</DataType>
+    </column>
+    <key id="44" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="45" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="46" parent="16" name="menu_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="47" parent="16" name="role_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="48" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="50" parent="17" name="bz">
+      <Position>2</Position>
+      <DataType>varchar(1000)|0</DataType>
+    </column>
+    <column id="51" parent="17" name="password">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="52" parent="17" name="true_name">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="53" parent="17" name="user_name">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="54" parent="17" name="remarks">
+      <Position>6</Position>
+      <DataType>varchar(1000)|0</DataType>
+    </column>
+    <key id="55" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="56" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="57" parent="18" name="user_id">
+      <Position>2</Position>
+      <Comment>用户id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="58" parent="18" name="device_id">
+      <Position>3</Position>
+      <Comment>设备id</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="59" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="60" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="61" parent="19" name="role_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="62" parent="19" name="user_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="63" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
