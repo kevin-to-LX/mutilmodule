@@ -16,7 +16,6 @@ import java.util.Set;
  * Created by jinyugai on 2018/8/28.
  */
 @Component
-
 public class DataCacheManager implements CommandLineRunner{//用于预先数据的加载
 
     private static Set<DataCacheService> dataCacheServiceSet = new HashSet<>();

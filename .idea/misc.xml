@@ -11,6 +11,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/spring-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-controller/pom.xml" />
       </list>
     </option>
   </component>
@@ -90,8 +91,5 @@
   <component name="SshConsoleOptionsProvider">
     <option name="myEncoding" value="UTF-8" />
     <option name="myConnectionType" value="NONE" />
-  </component>
-  <component name="SvnConfiguration">
-    <configuration>C:\Users\jinyugai\AppData\Roaming\Subversion</configuration>
   </component>
 </project>

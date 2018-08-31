@@ -28,6 +28,12 @@ public interface DataCacheService<V> {
     int delete(String key);
 
     /**
+     * 获取数据
+     * @param key 键
+     * @return 值
+     */
+    V get(String key);
+    /**
      * 更新数据
      * @param value 值
      */
@@ -38,6 +44,8 @@ public interface DataCacheService<V> {
      * @param list 缓存list
      */
     void addBatch(List<V> list);
+
+
 
     /**
      * 获取所有缓存

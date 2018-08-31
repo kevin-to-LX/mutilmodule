@@ -75,7 +75,12 @@
 			<artifactId>dragome-js-jre</artifactId>
 			<version>0.96-beta2</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-core</artifactId>
+            <version>9.7.0</version>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
