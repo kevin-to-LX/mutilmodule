@@ -13,6 +13,8 @@
         <!--<module>spring-redis</module>-->
         <module>spring-controller</module>
         <module>manager</module>
+        <module>spring_MQ_freemaker_demo</module>
+        <module>spring-dubbo</module>
     </modules>
 
 </project>

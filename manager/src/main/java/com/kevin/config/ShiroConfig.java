@@ -9,7 +9,6 @@ import org.apache.shiro.web.mgt.CookieRememberMeManager;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.SimpleCookie;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
-import org.apache.shiro.web.session.mgt.ServletContainerSessionManager;
 import org.crazycake.shiro.RedisCacheManager;
 import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
@@ -31,6 +30,8 @@ import java.util.Map;
 public class ShiroConfig {
 
     private final Logger logger = LoggerFactory.getLogger(ShiroConfig.class);
+
+
 
     /**
      * ShiroFilterFactoryBean 处理拦截资源文件问题。
@@ -80,7 +81,7 @@ public class ShiroConfig {
         // 设置realm.
         securityManager.setRealm(myRealm());
         // 自定义缓存实现 使用redis
-        securityManager.setCacheManager(cacheManager());
+//        securityManager.setCacheManager(cacheManager());
         logger.info(" securityManager.setCacheManager(cacheManager());");
         // 自定义session管理 使用redis
         /*securityManager.setSessionManager(sessionManager());
@@ -137,7 +138,7 @@ public class ShiroConfig {
      */
     @Bean
     public DefaultWebSessionManager sessionManager(){
-        ServletContainerSessionManager servletContainerSessionManager = new ServletContainerSessionManager();
+        //ServletContainerSessionManager servletContainerSessionManager = new ServletContainerSessionManager();
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         sessionManager.setSessionDAO(redisSessionDAO());
         return sessionManager;
@@ -217,5 +218,3 @@ public class ShiroConfig {
 
 
 }
-
-

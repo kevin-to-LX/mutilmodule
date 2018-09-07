@@ -7,6 +7,9 @@ import com.kevin.mapper.TmenuMapper;
 import com.kevin.mapper.TroleMapper;
 import com.kevin.mapper.TuserMapper;
 import com.kevin.mapper.TuserroleMapper;
+import com.kevin.redis.cache.impl.UserLoginCache;
+import com.kevin.redis.cache.impl.UserLoginSetCache;
+import com.kevin.redis.cache.impl.UserOnlineCache;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -42,18 +45,33 @@ public class MyRealm extends AuthorizingRealm{
 	@Resource
 	private TmenuMapper tmenuMapper;
 
+	@Resource
+	private UserLoginCache userLoginCache;
+
+	@Resource
+	private UserLoginSetCache userLoginSetCache;
+
+	@Resource
+	private UserOnlineCache userOnlineCache;
+
+	private static final int EXPIRE_MSEC = 20 * 1000;
+	private static final int WAIT_TIME = 500;
 	/**
 	 * 授权
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		String userName=(String) SecurityUtils.getSubject().getPrincipal();
+		userLoginCache.add(userName+"_cache",EXPIRE_MSEC);
 
 		//User user=userRepository.findByUserName(userName);
 		//根据用户名查询出用户记录
 		Example tuserExample=new Example(Tuser.class);
 		tuserExample.or().andEqualTo("userName",userName);
 		Tuser user=tuserMapper.selectByExample(tuserExample).get(0);
+		userOnlineCache.add(user);
+
+
 
 
 		SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();

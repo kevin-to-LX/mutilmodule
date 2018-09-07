@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.kevin.entity.Tmenu;
 import com.kevin.entity.Trole;
 import com.kevin.entity.Tuser;
+import com.kevin.redis.cache.cas.SessionStMapCache;
 import com.kevin.service.TmenuService;
 import com.kevin.service.TroleService;
 import com.kevin.service.TuserService;
@@ -12,9 +13,14 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
@@ -45,6 +51,14 @@ public class UserController {
 	
 	/*@Resource
 	private LogService logService;*/
+	@Autowired
+	private SessionStMapCache sessionStMapCache;
+
+	@Autowired
+	private RedisTemplate<String, String> redisTemplate;
+
+	private static final int EXPIRE_MSEC = 20 * 1000;
+	private static final int WAIT_TIME = 500;
 	
 	/**
      * 用户登录请求
@@ -54,6 +68,7 @@ public class UserController {
     @ResponseBody
     @PostMapping("/login")
     public Map<String,Object> login(String imageCode, @Valid Tuser user, BindingResult bindingResult, HttpSession session){
+
     	Map<String,Object> map=new HashMap<String,Object>();
     	if(StringUtils.isEmpty(imageCode)){
     		map.put("success", false);
@@ -72,6 +87,7 @@ public class UserController {
     	}
 		Subject subject=SecurityUtils.getSubject();
 		UsernamePasswordToken token=new UsernamePasswordToken(user.getUserName(), user.getPassword());
+		//RedisLock lock = RedisLock.getLock(redisTemplate, imageCode+"_loginSession", WAIT_TIME, EXPIRE_MSEC);
 		try{
 			subject.login(token); // 登录认证
 			String userName=(String) SecurityUtils.getSubject().getPrincipal();
@@ -80,6 +96,7 @@ public class UserController {
 			tuserExample.or().andEqualTo("userName",userName);
 			Tuser currentUser=tuserService.selectByExample(tuserExample).get(0);
 			session.setAttribute("currentUser", currentUser);
+
 			//List<Trole> roleList=troleService.findByUserId(currentUser.getId());
 			List<Trole> roleList=troleService.selectRolesByUserId(currentUser.getId());
 			map.put("roleList", roleList);
@@ -92,7 +109,9 @@ public class UserController {
 			map.put("success", false);
 			map.put("errorInfo", "用户名或者密码错误！");
 			return map;
-		}
+		} // finally {
+			//lock.unlock();
+		//}
     }
 
 
@@ -145,11 +164,13 @@ public class UserController {
 
 		putTmenuOneClassListIntoSession(session);
 
-		Object currenRole= session.getAttribute("currentRole");
-		Trole  currentRole =(Trole) currenRole;
+		Trole currenRole= (Trole)session.getAttribute("currentRole");
+
+
+
 
 		//根据当前用户的角色id和父节点id查询所有菜单及子集json
-		String json=getAllMenuByParentId(parentId,currentRole.getId()).toString();
+		String json= getAllMenuByParentId(parentId,currenRole.getId()).toString();
 		//System.out.println(json);
 		return json;
 	}

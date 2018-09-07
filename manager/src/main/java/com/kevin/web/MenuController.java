@@ -5,14 +5,12 @@ import com.google.gson.JsonObject;
 import com.kevin.entity.Tmenu;
 import com.kevin.entity.Trolemenu;
 import com.kevin.service.*;
-import com.kevin.service.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;

@@ -4,8 +4,6 @@ import com.github.pagehelper.PageHelper;
 import com.kevin.entity.Tdevice;
 import com.kevin.entity.Tuser;
 import com.kevin.entity.Tuserdevice;
-import com.kevin.service.*;
-import com.kevin.entity.*;
 import com.kevin.model.JqgridBean;
 import com.kevin.model.PageRusult;
 import com.kevin.service.*;
@@ -16,7 +14,6 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
@@ -65,9 +62,7 @@ public class DeviceAdminController {
     @RequestMapping(value = "/list")
     @RequiresPermissions(value = {"设备管理"})
     @ApiOperation(value="分页查询设备")
-    public Map<String, Object> list(JqgridBean jqgridbean
-            /*String userName,@RequestParam(value="page",required=false)Integer page*/
-    ) throws Exception {
+    public Map<String, Object> list(JqgridBean jqgridbean) throws Exception {
         LinkedHashMap<String, Object> resultmap = new LinkedHashMap<String, Object>();
         LinkedHashMap<String, Object> datamap = new LinkedHashMap<String, Object>();
 
@@ -111,7 +106,7 @@ public class DeviceAdminController {
 
     @ResponseBody
     @RequestMapping(value = "/addupdatedevice")
-    @RequiresPermissions(value = {"设备管理"})
+    /*@RequiresPermissions(value = {"设备管理"})*/
     @ApiOperation(value="设备管理")
     public Map<String, Object> addupdatedevice(Tdevice tdevice, HttpSession session) {
         LinkedHashMap<String, Object> resultmap = new LinkedHashMap<String, Object>();
@@ -160,7 +155,7 @@ public class DeviceAdminController {
 
     @ResponseBody
     @RequestMapping(value = "/deletedevice")
-    @RequiresPermissions(value = {"设备管理"})
+    /*@RequiresPermissions(value = {"设备管理"})*/
     public Map<String, Object> deletedevice(Tdevice tdevice) {
         LinkedHashMap<String, Object> resultmap = new LinkedHashMap<String, Object>();
         try {
@@ -198,7 +193,7 @@ public class DeviceAdminController {
 
     @ResponseBody
     @RequestMapping(value = "/selectDeviceById")
-    @RequiresPermissions(value = {"设备管理"})
+    /*@RequiresPermissions(value = {"设备管理"})*/
     public Map<String, Object> selectUserById(Tdevice tdevice) {
         LinkedHashMap<String, Object> resultmap = new LinkedHashMap<String, Object>();
         try {

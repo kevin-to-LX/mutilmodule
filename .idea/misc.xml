@@ -13,6 +13,8 @@
         <option value="$PROJECT_DIR$/spring-redis/pom.xml" />
         <option value="$PROJECT_DIR$/spring-controller/pom.xml" />
         <option value="$PROJECT_DIR$/deviceManager/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-dubbo/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
       </list>
     </option>
   </component>

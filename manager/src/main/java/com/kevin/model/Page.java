@@ -12,7 +12,7 @@ import java.io.Serializable;
  * 分页对象.
  *
  * @author kevin
- * @version 1.0.1.0, Oct 6, 2018
+ * @version 1.0.1.0, , 2018
  */
 public final class Page implements Serializable {
 

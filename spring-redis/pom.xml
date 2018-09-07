@@ -70,17 +70,28 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.2.47</version>
 		</dependency>
-		<dependency>
-			<groupId>com.dragome</groupId>
-			<artifactId>dragome-js-jre</artifactId>
-			<version>0.96-beta2</version>
-		</dependency>
+		<!--<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.6.2</version>
+		</dependency>-->
+
         <dependency>
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-core</artifactId>
             <version>9.7.0</version>
         </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>org.sitemesh</groupId>
+			<artifactId>sitemesh</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session-data-redis</artifactId>
+			<version>2.0.3.RELEASE</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>

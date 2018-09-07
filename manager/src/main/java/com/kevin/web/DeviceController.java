@@ -10,17 +10,12 @@ import com.kevin.service.TuserService;
 import com.kevin.service.TuserdeviceService;
 import io.swagger.annotations.Api;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.apache.shiro.web.session.HttpServletSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -50,7 +45,7 @@ public class DeviceController {
      */
     @ResponseBody
     @RequestMapping(value = "/list")
-    @RequiresPermissions(value = {"设备管理"})
+    /*@RequiresPermissions(value = {"设备管理"})*/
 
     public Map<String, Object> list(JqgridBean jqgridbean , HttpSession session) throws Exception {
         /*String userName,@RequestParam(value="page",required=false)Integer page*/

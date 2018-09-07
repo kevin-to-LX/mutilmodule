@@ -10,4 +10,7 @@
     <result column="permission_init" jdbcType="VARCHAR" property="permissionInit" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
   </resultMap>
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT * FROM sys_permission_init ORDER BY sort ASC
+  </select>
 </mapper>
